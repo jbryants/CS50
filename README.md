@@ -1,2 +1,2 @@
 # CS50
-Solved problem sets of CS50 by Harvard University
+My solutions to problem sets of CS50 by Harvard University
