@@ -10,7 +10,10 @@ You can fill up a specific amount of space for each int. uint8_t is the same as 
 
 ## How many bytes is a `BYTE`, a `DWORD`, a `LONG`, and a `WORD`, respectively?
 
-BYTE - 1, DWORD - 4, LONG - 4, WORD - 2
+BYTE: 1
+DWORD: 4
+LONG: 4
+WORD: 2
 
 ## What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
 
@@ -43,7 +46,7 @@ The third argument tells us how many elements fread will read. We are always rea
 
 ## What does `fseek` do?
 
-fseek() function is used to move file pointer position to the given location.
+fseek() is used to move file pointer associated with a given file to a specific position.
 
 ## What is `SEEK_CUR`?
 
