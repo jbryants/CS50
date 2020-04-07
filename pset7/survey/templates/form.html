@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <!-- TODO -->
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control col-4" name="Name" id="name" aria-describedby="yourName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="Date">Date of birth</label>
+          <input type="date" name="DOB" class="form-control col-4" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Gender">Gender</label><br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+                <input type="radio" name="Gender" value="Male" id="opt1" required> Male ♂
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="Gender" value="Female" id="opt2"> Female ♀
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="Gender" value="Other" id="opt3"> Other
+              </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pyWeb">Python web frameworks used?</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Django" id="inlineCheckbox1" value="1">
+              <label class="form-check-label" for="inlineCheckbox1">Django</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Flask" id="inlineCheckbox2" value="1">
+              <label class="form-check-label" for="inlineCheckbox2">Flask</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Pyramid" id="inlineCheckbox3" value="1">
+              <label class="form-check-label" for="inlineCheckbox3">Pyramid</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="Web2py" id="inlineCheckbox3" value="1">
+              <label class="form-check-label" for="inlineCheckbox3">Web2py</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputState">Demographic</label>
+             <select id="inputState" name="Continent" class="form-control col-4">
+                <option>Asia</option>
+                <option>Africa</option>
+                <option>Europe</option>
+                <option>Australia</option>
+                <option>North America</option>
+                <option>Antarctica</option>
+                <option>South America</option>
+             </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleColor">Favorite Color</label>
+            <input type="color" name="Fav_color" class="form-control col-4" id="Color" aria-describedby="colorHelp">
+        </div>
+
+        <div class="form-group">
+            <label for="customRange3">Hours of sleep</label><br>
+            <input type="range" name="Sleep" class="custom-range col-4 text-dark" min="1" max="10" step="0.5" id="sleepRange" onchange="dispVal()">
+            <label for="range_val"></label>
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        /* TODO */
+    	function dispVal() {
+        	let val = document.querySelector('input[id="sleepRange"]').value;
+    		document.querySelector('label[for="range_val"]').innerHTML = val;
+        }
+
+    </script>
+
+{% endblock %}

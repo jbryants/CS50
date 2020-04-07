@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/compare" enctype="multipart/form-data" method="post">
+
+              <div class="form-group">
+                <input type="file" name="file1" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+
+              <div class="form-group">
+                <input type="file" name="file2" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+
+              <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" name="algorithm" type="radio" value="lines">
+                        Compare lines
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" name="algorithm" type="radio" value="sentences">
+                        Compare sentences
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" name="algorithm" type="radio" value="substrings">
+                        Compare substrings
+                        <input class="form-control form-control-sm" min="1" name="length" placeholder="of length n" type="number">
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Compare</button>
+
+        </form>
+    </div>
+
+    <script>
+        const len_inp = document.querySelector('input[name="length"]');
+
+        len_inp.addEventListener('focus', () => {
+          document.querySelector('input[value="substrings"]').checked = true;
+        });
+
+    </script>
+
+{% endblock %}
