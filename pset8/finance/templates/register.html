@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <form action="/register" id="registerationForm" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" id="uname" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Password (again)" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+    <script>
+     // TODO
+     // AJAX VALIDATION IF USERNAME ALREADY TAKEN OR NOT - using check() in application.py (refer problem set 8 documentation)
+     $(document).ready(function(){
+      $("button").click(function( event ){
+        event.preventDefault()
+        $.get({
+          url: "/check",
+          data: $("#uname").serialize(),
+          success: function(available) {
+              // Ensure username submitted is unique
+              if (available) {
+                $("#registerationForm").submit();
+              }
+              else {
+                alert("Username is not available");
+              }
+          }
+        });
+      });
+    });
+    </script>
+{% endblock %}
